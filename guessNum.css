@@ -1,0 +1,54 @@
+body {
+      font-family: "微軟正黑體", "Helvetica", "Serif"; 
+      box-sizing: border-box;
+      background: url("images/tree.jpg") no-repeat left top;
+      background-size: cover;
+    }
+
+    .white {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 50px 30px;
+    }
+
+    .block {
+      width: 60%;
+      margin: 150px auto;
+      background: url('images/rope.png') no-repeat left top;
+    }
+
+    .head {
+      background: url('images/wood.png') no-repeat left top;
+      height: 100px;  
+      padding: 10px; 
+      box-sizing: border-box;   
+    }
+
+    .content {
+      background: url('images/woodbig.png') no-repeat left top;
+      padding: 4px 20px; 
+      height: 240px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 2px;
+    }    
+
+    p, input, button {
+      font-size: 22px;
+    }
+    
+    button {
+      background-color: #D9A47A;
+      border-radius: 5px;
+      padding: 3px 10px;
+    }
+
+    div {
+      width: 75%;
+      margin: 0px auto;
+      
+    }
+
+    
