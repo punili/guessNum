@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<title>JiaYing</title>
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <noscript>Your browser does not support JavaScript!</noscript>
+  <style type="text/css">
+    body {
+      font-family: "微軟正黑體", "Helvetica", "Serif"; 
+      box-sizing: border-box;
+      background: url("images/tree.jpg") no-repeat left top;
+      background-size: cover;
+    }
+
+    .white {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 50px 30px;
+    }
+
+    .block {
+      width: 60%;
+      margin: 150px auto;
+      background: url('images/rope.png') no-repeat left top;
+    }
+
+    .head {
+      background: url('images/wood.png') no-repeat left top;
+      height: 100px;  
+      padding: 10px; 
+      box-sizing: border-box;   
+    }
+
+    .content {
+      background: url('images/woodbig.png') no-repeat left top;
+      padding: 4px 20px; 
+      height: 240px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 2px;
+    }    
+
+    p, input, button {
+      font-size: 22px;
+    }
+    
+    button {
+      background-color: #D9A47A;
+      border-radius: 5px;
+      padding: 3px 10px;
+    }
+
+    div {
+      width: 75%;
+      margin: 0px auto;
+      
+    }
+
+    
+
+  </style>
+</head>
+
+<body>
+  <div class="white">
+    <div class="block">
+      <div class="head">
+        <h1>終極密碼猜數字遊戲</h1>
+      </div>
+      <div class="content">
+        <p>請輸入一個 1 至 100 之間 的 正整數:</p>
+
+        <input id="numb" type="number" max="100" min="1" >
+        <button type="button" onclick="myFunction()">輸入</button>
+        
+        <p id="demo"></p>
+        <button type="button" onclick="F5()">重新出題！</button>
+      </div>
+    </div>
+  </div>  
+  <script>
+  var x, txt;
+  var i;
+  var ans = Math.floor((Math.random() * 99 )  +1 );
+  var a = 1; b = 100;
+  function F5(){
+    window.location.reload();    
+  }
+
+
+  function myFunction() {
+      
+      demo.innerHTML = "";
+      x = document.getElementById("numb").value;
+      
+         
+      try { 
+          if(x == "")  throw "數值為空，請輸入數字";
+          if(isNaN(x)) throw "請輸入數字";
+          x = Number(x);
+          if(x > 100)   throw "輸入的數值太大";
+          if(x < 1)    throw "輸入的數值太小";
+
+           x = parseInt(x) 
+           i = parseInt(i) 
+        
+      if( isNaN(i) && x != ans  )
+            {
+               if(x < ans)
+                {
+                   txt = "正確數字介於 " + x + " 至100之間。" ;
+                 }   
+               else  if(x > ans) 
+                 {
+                   txt = "正確數字介於 1 至 " + x +" 之間。" ;
+                  }
+               else
+                  {
+                    txt = "輸入有誤！ "   ;
+                    }
+
+               i =  x;
+             }
+          else if( x != ans && i != 0)
+            {
+               if(x < ans && i < ans && i <= x)
+                {
+                   txt = "正確數字介於 " + x + " 至100之間。" ;
+                 }
+               else if(x < ans && i < ans && i > x)
+                 {
+                   txt = "正確數字介於 " + i + " 至100之間。" ;
+                  }            
+               else if(x < ans && i > ans )
+                 {
+                   txt = "正確數字介於 "+ x + " 至 " + i +" 之間。"  ;
+                  }
+               else if(x > ans && i > ans && i >= x)
+                 {
+                   txt = "正確數字介於 1 至 " + x +" 之間。" ;
+                  }       
+
+               else if(x > ans && i > ans && i < x)
+                 {
+                   txt = "正確數字介於 1 至 " + i +" 之間。" ;
+                  }
+               else  if(x > ans && i < ans ) 
+                 {
+                   txt = "正確數字介於 " + i + " 至 " + x +" 之間。" ;
+                  }
+               else
+                  {
+                    txt = "輸入有誤！ "   ;
+                    }
+
+               i = 0+ x;
+             }   
+            else
+             {
+                txt = "恭喜猜對了！ " ;
+              }      
+      }
+      catch(err) {
+          txt = "輸入有誤！ " + err;
+      }
+      finally { 
+           document.getElementById("demo").innerHTML = txt;
+       
+                  }
+  }
+  </script>
+
+</body>
+</html>
